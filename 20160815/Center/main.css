@@ -1,0 +1,11 @@
+.center{
+    display: block;
+    position: relative;
+    width: 600px;
+}
+
+#content{
+    position: relative;
+    left: 50%;
+    margin-left:-300px;
+}
