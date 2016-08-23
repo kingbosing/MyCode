@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>动态创建表格</title>
+    <script type="text/javascript">
+        function AppendTableData() {
+            var table = document.getElementById("tblMain");
+            var data = { "百度": "http://www.baidu.com",
+                "脚本之家": "http://www.jb51.net",
+                "搜狐": "http://www.sohu.com"
+            };
+            for (var key in data) {
+                var tr = document.createElement("tr");
+                var td1 = document.createElement("td");
+                td1.innerText = key;
+                //FireFox不支持innerText,只能使用innerHTML
+                tr.appendChild(td1);
+                var td2 = document.createElement("td");
+                td2.innerHTML = "<a href='" + data[key] + "'>" + data[key] + "</a>";
+                tr.appendChild(td2);
+                table.appendChild(tr);
+            }
+        }
+    </script>
+</head>
+<body>
+<table id="tblMain"></table>
+<input type="button" value="动态添加网格数据"
+       onclick="AppendTableData()" />
+</body>
+</html>
