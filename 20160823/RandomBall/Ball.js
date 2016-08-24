@@ -36,18 +36,18 @@ window.ucai = window.ucai || {};
     pro.move = function () {
         var nowX = parseInt(this._htmlNode.style.left);
         var nowY = parseInt(this._htmlNode.style.top);
-        var speedX,speedY;
+        var speedX, speedY;
         while (true) {
             speedX = 10 - Math.floor(Math.random() * 21);
             speedY = 10 - Math.floor(Math.random() * 21);
-            if (!(speedX==0&&speedY==0)) break;
+            if (!(speedX == 0 && speedY == 0)) break;
         }
 
         var id = setInterval(function () {
             nowX += speedX, nowY += speedY;
             this._htmlNode.style.left = nowX + "px";
             this._htmlNode.style.top = nowY + "px";
-            if ((nowX <= -40 || nowX >= 1600) || (nowY <= -40 || nowY >= 800)) {
+            if ((nowX <= -40 || nowX >= document.body.clientWidth-40) || (nowY <= -40 || nowY >= window.screen.height-40)) {
                 clearInterval(id);
                 this._htmlNode.parentNode.removeChild(this._htmlNode);
             }
